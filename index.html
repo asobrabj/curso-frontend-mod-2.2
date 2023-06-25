@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World!</title>
+</head>
+
+<body>
+
+    <h2>JavaScript Formas de 'Hello World'</h2>
+
+    <p id="id02"></p>
+    <section id="id03"></section>
+    <br>
+    <div class="id04"></div>
+    <p>Nome: <input name="xname" type="text" value="Marcos"></p>
+    <p class="id06">Hello World!.</p>
+    <p id="id07"></p>
+    <p id="id08"></p>
+    <p id="id09"></p>
+
+
+
+
+    <script>
+        alert('1º - Hello World!')
+        document.getElementById("id02").innerHTML = "2º - Hello World!";
+        document.getElementsByTagName("section")[0].innerHTML = "3º - Hello World!";
+        document.getElementsByClassName("id04")[0].innerHTML = "4º - Hello World!";
+        document.getElementsByName("xname")[0].value = "5º - Hello World!";
+        document.querySelectorAll("p.id06")[0].innerHTML = "6º - Hello World!";
+
+        // usando funcao de callback
+        function exibir(hello) {
+            document.getElementById("id07").innerHTML = hello;
+        }
+
+        function exibindo() {
+            exibir("7º - Hello World");
+        }
+        exibindo();
+
+
+        // usando funcao promise
+        function Displayer(texto) {
+            document.getElementById("id08").innerHTML = texto;
+        }
+
+        let myPromise = new Promise(function (Resolve, Reject) {
+            let x = 0;
+
+            if (x == 0) {
+                Resolve("8º - Hello World!");
+            } else {
+                Reject("Error");
+            }
+        });
+
+        myPromise.then(
+            function (value) {
+                Displayer(value);
+            },
+            function (error) {
+                Displayer(error);
+            }
+        );
+
+
+        // usando funcao assícrono
+        setTimeout(mostrar, 3000);
+        function mostrar() {
+            document.getElementById("id09").innerHTML = "9º - Hello World!";
+        }
+
+        document.write('10º - Hello World');
+
+    </Script>
+</body>
+
+</html>
